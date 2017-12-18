@@ -5,7 +5,11 @@ use yii\widgets\ListView;
 use yii\widgets\Pjax;
 use kartik\file\FileInput;
 
+use noam148\imagemanager\assets\ImageManagerAsset;
+
 $this->title = Yii::t('imagemanager','Image manager');
+
+ImageManagerAsset::register($this);  // $this represents the view object
 
 ?>
 <div id="module-imagemanager" class="container-fluid <?=$selectType?>">
@@ -31,13 +35,13 @@ $this->title = Yii::t('imagemanager','Image manager');
 						<span class="hidden-xs"><?=Yii::t('imagemanager','Cancel')?></span>
 					</a>
 				</div>
-			</div> 
+			</div>
 		</div>
 		<div class="col-xs-6 col-sm-10 col-overview">
 			<?php Pjax::begin([
 				'id'=>'pjax-mediamanager',
 				'timeout'=>'5000'
-			]); ?>    
+			]); ?>
 			<?= ListView::widget([
 				'dataProvider' => $dataProvider,
 				'itemOptions' => ['class' => 'item img-thumbnail'],
@@ -66,7 +70,7 @@ $this->title = Yii::t('imagemanager','Image manager');
 				],
 				'pluginOptions' => [
 					'uploadUrl' => Url::to(['manager/upload']),
-					'allowedFileExtensions' => \Yii::$app->controller->module->allowedFileExtensions, 
+					'allowedFileExtensions' => \Yii::$app->controller->module->allowedFileExtensions,
 					'uploadAsync' => false,
 					'showPreview' => false,
 					'showRemove' => false,
@@ -113,9 +117,9 @@ $this->title = Yii::t('imagemanager','Image manager');
 					?>
 				</div>
 				<?php if($viewMode === "iframe"): ?>
-				<a href="#" class="btn btn-primary btn-block pick-image-item"><?=Yii::t('imagemanager','Select')?></a> 
+				<a href="#" class="btn btn-primary btn-block pick-image-item"><?=Yii::t('imagemanager','Select')?></a>
 				<?php endif; ?>
 			</div>
-		</div>  
+		</div>
 	</div>
-</div>  
+</div>
