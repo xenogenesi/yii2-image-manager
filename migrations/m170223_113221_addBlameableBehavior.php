@@ -12,8 +12,11 @@ class m170223_113221_addBlameableBehavior extends Migration
 
     public function down()
     {
-        echo "m170223_113221_addBlameableBehavior cannot be reverted.\n";
+        //echo "m170223_113221_addBlameableBehavior cannot be reverted.\n";
+        $this->dropColumn('{{%ImageManager}}', 'createdBy');
+        $this->dropColumn('{{%ImageManager}}', 'modifiedBy');
+        echo "m170223_113221_addBlameableBehavior reverted.\n";
 
-        return false;
+        return true;
     }
 }
