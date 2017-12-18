@@ -19,7 +19,7 @@ use yii\behaviors\BlameableBehavior;
  * @property string $createdBy
  * @property string $modifiedBy
  */
-class ImageManager extends \yii\db\ActiveRecord { 
+class ImageManager extends \yii\db\ActiveRecord {
 
 	/**
 	 * Set Created date to now
@@ -57,7 +57,7 @@ class ImageManager extends \yii\db\ActiveRecord {
 	 * @inheritdoc
 	 */
 	public static function tableName() {
-		return 'ImageManager';
+		return '{{%ImageManager}}';
 	}
 
     /**
